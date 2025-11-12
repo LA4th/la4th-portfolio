@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import TheHeader  from './components/TheHeader.jsx'
 
 
 function App() {
@@ -6,7 +7,7 @@ function App() {
 
   return (
     <>
-      
+      <TheHeader />
     </>
   )
 }
