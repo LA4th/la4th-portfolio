@@ -8,7 +8,7 @@ import SplitText from "./ui/SplitText/SplitText.jsx";
 export default function TheHero () {
   const hero = {
     name: "Lorenzo Laforteza",
-    role: "Knowlegable Web Developer"
+    role: "Knowlegable Web Developer "
   };
 
   return (
@@ -45,8 +45,8 @@ export default function TheHero () {
           </div>
           <p className="text-white text-center font-stretch-condensed">
             <span className="text-vintageLightBlue font-bold">  
-              {hero.role}
-            </span> 
+              {hero.role} 
+            </span>  
               with experience in front-end and back-end development, focusing on practical and efficient solutions that are easy to maintain and scale.
           </p>
           <a href="#" className="text-white font-bold px-10 py-1.5 rounded-md bg-vintageLightBlue hover:scale-105 active:scale-100 transition duration-150 transform">Let's Connect</a>
