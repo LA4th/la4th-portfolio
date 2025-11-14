@@ -9,9 +9,9 @@
   --color-vintageBlack: #05000F;
 }
 
-/* * {
+* {
   border: 1px solid red;
-} */
+}
 
 body {
   @apply font-poppins;

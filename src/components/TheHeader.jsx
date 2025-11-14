@@ -28,7 +28,7 @@ export default function TheHeader () {
       <a href="#">
         <RotatingText
           texts={['WELCOME!', 'LA4TH']}
-          mainClassName="text-vintageLightBlue font-bold text-2xl font-stretch-condensed"
+          mainClassName="text-vintageLightBlue font-bold text-3xl font-stretch-condensed"
           staggerFrom={"last"}
           initial={{ y: "100%" }}
           animate={{ y: 0 }}
