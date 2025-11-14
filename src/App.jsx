@@ -9,9 +9,9 @@ function App() {
 
   return (
     <>
-      <TheHeader />
+      {/* <TheHeader /> */}
       <TheHero />
-      <TheTechStacks />
+      {/* <TheTechStacks /> */}
     </>
   )
 }

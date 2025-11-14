@@ -27,7 +27,7 @@ export default function TheHero () {
       />
       <div className="w-[900px] max-w-full m-auto absolute z-10 inset-0 flex items-center justify-center">
         <div className="flex flex-col items-center justify-center gap-y-5">
-          <div className="text-white text-center text-5xl font-stretch-condensed flex flex-row items-center gap-x-2">
+          <div className="text-white text-center text-5xl flex flex-row items-center gap-x-2">
             Hello, I'm 
             <SplitText
               text={hero.name}
@@ -43,7 +43,7 @@ export default function TheHero () {
               textAlign="center"
             />
           </div>
-          <p className="text-white text-center font-stretch-condensed">
+          <p className="text-white text-center">
             <span className="text-vintageLightBlue font-bold">  
               {hero.role} 
             </span>  

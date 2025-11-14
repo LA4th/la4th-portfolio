@@ -38,7 +38,7 @@ export default function TheTechStacks () {
     return (
       techStack[0].icons.map((icon, index) => {
         return (
-          <li key={index}>
+          <li key={index} className='flex flex-col items-center'>
             <img src={icon} alt={techStack[0].alt[index]} className='w-10 h-10' />
             <span className='text-white'>{techStack[0].technologies[index]}</span>
           </li>
@@ -55,9 +55,11 @@ export default function TheTechStacks () {
       </div>
       <div>
         {/* FRONTEND */}
-        <ul>
-          <h1>{techStack[0].category}</h1>
-          {renderFrontEnd()}
+        <ul className='w-1/2 max-w-full flex flex-col items'>
+          <h1 className='text-white text-center text-2xl font-bold'>{techStack[0].category}</h1>
+          <div className='flex flex-row flex-wrap justify-center gap-x-5'>
+            {renderFrontEnd()}
+          </div>
         </ul>
       </div>
     </div>
