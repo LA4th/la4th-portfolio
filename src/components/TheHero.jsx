@@ -12,13 +12,13 @@ export default function TheHero () {
   };
 
   return (
-    <div style={{ width: '100%', height: '600px', position: 'relative' }}>
+    <div style={{ width: '100%', height: '100vh', position: 'relative' }}>
       <LightRays
         raysOrigin="top-center"
         raysColor="#4DA8DA"
         raysSpeed={1.5}
         lightSpread={0.8}
-        rayLength={1.2}
+        rayLength={20} // 1.2 (Normal)
         followMouse={true}
         mouseInfluence={0.1}
         noiseAmount={0.1}
@@ -27,11 +27,11 @@ export default function TheHero () {
       />
       <div className="w-[900px] max-w-full m-auto absolute z-10 inset-0 flex items-center justify-center">
         <div className="flex flex-col items-center justify-center gap-y-5">
-          <div className="text-white text-center text-5xl flex flex-row items-center gap-x-2">
-            Hello, I'm 
+          <div className="flex flex-col items-start gap-x-2 md:items-end md:flex-row">
+            <p className="text-white md:text-4xl">Hello, I'm</p>
             <SplitText
               text={hero.name}
-              className="text-vintageLightBlue font-bold text-center"
+              className="text-vintageLightBlue font-bold text-center text-5xl"
               delay={100}
               duration={0.6}
               ease="power3.out"

@@ -1,25 +1,16 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import Button from "../components/Button.jsx";
 import Magnet from "./ui/Magnet/Magnet.jsx";
 import { FaDownload } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoCloseSharp } from "react-icons/io5";
 import RotatingText from "./ui/RotatingText/RotatingText.jsx";
+import UseMobileView from "./hooks/useMobileView.jsx";
 
 export default function TheHeader() {
   const [open, setOpen] = useState(false);
-  const [mobileView, setMobileView] = useState(false);
 
-  useEffect(() => {
-    const handleSize = () => {
-      setMobileView(window.innerWidth < 768);
-    };
-    handleSize();
-
-    window.addEventListener("resize", handleSize);
-    
-    return () => window.removeEventListener("resize", handleSize);
-  }, [])
+  const mobileView = UseMobileView();
 
   const header = {
     navBar: ["Home", "Skills", "Projects", "Contacts"],
@@ -35,36 +26,12 @@ export default function TheHeader() {
   };
 
   const buttonBurger = () => {
-    if(!open) {
-      return (
-        <Button
-          id="btnBurger"
-          onClick={() => setOpen(!open)}
-          btnIcon={<GiHamburgerMenu />}
-          className="md:hidden text-white text-5xl absolute top-0 right-0"
-        />
-      );
-    } else {
-      return (
-        <Button
-          id="btnBurger"
-          onClick={() => setOpen(!open)}
-          btnIcon={<IoCloseSharp />}
-          className="md:hidden absolute z-20 top-0 right-0 text-white text-5xl"
-        />
-      );
-    }
-  };
-
-  const buttonResume = () => {
-    return(
+    return (
       <Button
-        type="button"
-        id="btnResume"
-        onClick={() => {}}
-        className="text-white font-bold bg-vintageLightBlue px-7 py-1.5 rounded-md cursor-pointer flex flex-row gap-x-1.5 items-center justify-center hover:scale-105 active:scale-100 transition duration-150 transform"
-        btnText={header.btnResumeText}
-        btnIcon={<FaDownload />}
+        id="btnBurger"
+        onClick={() => setOpen(!open)}
+        btnIcon={!open ? <GiHamburgerMenu /> : <IoCloseSharp />}
+        className="md:hidden text-white text-5xl absolute z-20 top-0 right-0"
       />
     );
   };
@@ -94,20 +61,34 @@ export default function TheHeader() {
           <ul className="flex flex-row gap-x-5">{buttonNavBar()}</ul>
 
           <Magnet padding={30} disabled={mobileView} magnetStrength={5}>
-            {buttonResume()}
+            <Button
+              type="button"
+              id="btnResume"
+              onClick={() => {}}
+              className="text-white font-bold bg-vintageLightBlue px-7 py-1.5 rounded-md cursor-pointer flex flex-row gap-x-1.5 items-center justify-center hover:scale-105 active:scale-100 transition duration-150 transform"
+              btnText={header.btnResumeText}
+              btnIcon={<FaDownload />}
+            />
           </Magnet>
         </div>        
       </div>
 
       {/* Burger (Mobile Only) */}
       {buttonBurger()}
-
-      <div className={`md:hidden absolute z-10 top-0 right-0 w-1/2 max-w-full min-h-screen flex flex-col gap-y-5 items-center pt-20 bg-vintageBlack transition-all duration-300 transform ${open ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"}`}>
+      {/* Mobile Menu */}
+      <div className={`md:hidden absolute z-10 top-0 right-0 w-1/2 max-w-full min-h-screen flex flex-col gap-y-5 pt-20 px-10 bg-vintageBlack transition-all duration-300 transform ${open ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"}`}>
         <ul className="flex flex-col gap-y-5 text-center">
           {buttonNavBar()}
         </ul>
 
-        {buttonResume()}
+        <Button
+          type="button"
+          id="btnResume"
+          onClick={() => {}}
+          className="text-white font-bold bg-vintageLightBlue px-7 py-1.5 rounded-md cursor-pointer flex flex-row gap-x-1.5 items-center justify-center hover:scale-105 active:scale-100 transition duration-150 transform"
+          btnText={header.btnResumeText}
+          btnIcon={<FaDownload />}
+        />
       </div>
     </header>
   );
